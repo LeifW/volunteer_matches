@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100429020159) do
+ActiveRecord::Schema.define(:version => 20100510083753) do
+
+  create_table "availabilities", :force => true do |t|
+  end
+
+  create_table "availabilities_people", :id => false, :force => true do |t|
+    t.integer "availability_id"
+    t.integer "person_id"
+  end
 
   create_table "people", :id => false, :force => true do |t|
     t.integer  "id"

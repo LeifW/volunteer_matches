@@ -1,9 +1,8 @@
 class CreateAvailabilities < ActiveRecord::Migration
   def self.up
-    create_table :availabilities do |t|
-
-      t.timestamps
+    create_table :availabilities do
     end
+
   end
 
   def self.down
