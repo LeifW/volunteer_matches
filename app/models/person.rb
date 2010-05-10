@@ -1,4 +1,4 @@
 class Person < ActiveRecord::Base
-  belongs_to :contact
-  belongs_to :availabilities
+  has_many :contacts
+  has_and_belongs_to_many :availabilities
 end

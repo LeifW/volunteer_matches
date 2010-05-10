@@ -4,10 +4,8 @@ class CreatePeople < ActiveRecord::Migration
       t.integer :id
       t.string :name
       t.boolean :male
-      t.references :contact
       t.text :address
       t.boolean :contact_permission
-      t.references :availabilities
       t.integer :weekly_hours
       t.text :comments
       t.string :type
