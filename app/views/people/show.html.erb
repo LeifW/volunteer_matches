@@ -1,0 +1,53 @@
+<p>
+  <b>Id:</b>
+  <%=h @person.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @person.name %>
+</p>
+
+<p>
+  <b>Male:</b>
+  <%=h @person.male %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%=h @person.contact %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @person.address %>
+</p>
+
+<p>
+  <b>Contact permission:</b>
+  <%=h @person.contact_permission %>
+</p>
+
+<p>
+  <b>Availabilities:</b>
+  <%=h @person.availabilities %>
+</p>
+
+<p>
+  <b>Weekly hours:</b>
+  <%=h @person.weekly_hours %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%=h @person.comments %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @person.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

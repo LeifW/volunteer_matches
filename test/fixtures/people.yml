@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  name: MyString
+  male: false
+  contact: 
+  address: MyText
+  contact_permission: false
+  availabilities: 
+  weekly_hours: 1
+  comments: MyText
+  type: MyString
+
+two:
+  id: 1
+  name: MyString
+  male: false
+  contact: 
+  address: MyText
+  contact_permission: false
+  availabilities: 
+  weekly_hours: 1
+  comments: MyText
+  type: MyString
