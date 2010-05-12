@@ -2,24 +2,24 @@
 
 one:
   id: 1
-  name: MyString
-  male: false
-  contact: 
+  name: Jose
+  male: true
+#  contact: 
   address: MyText
-  contact_permission: false
-  availabilities: 
-  weekly_hours: 1
+  contact_permission: true
+#  availabilities: 
+  weekly_hours: 3
   comments: MyText
-  type: MyString
+  type: Student
 
 two:
-  id: 1
-  name: MyString
+  id: 2
+  name: Jack
   male: false
-  contact: 
+#  contact: 
   address: MyText
-  contact_permission: false
-  availabilities: 
-  weekly_hours: 1
+  contact_permission: true
+#  availabilities: 
+  weekly_hours: 5
   comments: MyText
-  type: MyString
+  type: Volunteer
