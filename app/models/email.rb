@@ -1,0 +1,2 @@
+class Email < Contact 
+end
