@@ -9,18 +9,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100512203640) do
+ActiveRecord::Schema.define(:version => 20100527015130) do
 
   create_table "availabilities", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "timeslot_id"
+    t.integer  "match_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "availabilities_people", :id => false, :force => true do |t|
-    t.integer "availability_id"
-    t.integer "person_id"
+  create_table "contact_methods", :force => true do |t|
+    t.string   "name"
+    t.integer  "match_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "availabilities_people", ["availability_id"], :name => "index_availabilities_people_on_availability_id"
-  add_index "availabilities_people", ["person_id"], :name => "index_availabilities_people_on_person_id"
+  create_table "contact_methods_matches", :id => false, :force => true do |t|
+    t.integer "contact_method_id"
+    t.integer "match_id"
+  end
+
+  add_index "contact_methods_matches", ["contact_method_id", "match_id"], :name => "index_contact_methods_matches_on_contact_method_id_and_match_id"
 
   create_table "contacts", :force => true do |t|
     t.string   "content"
@@ -28,6 +39,15 @@ ActiveRecord::Schema.define(:version => 20100512203640) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "matches", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "volunteer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "start_date"
+    t.datetime "contact_date"
   end
 
   create_table "people", :id => false, :force => true do |t|
@@ -41,6 +61,19 @@ ActiveRecord::Schema.define(:version => 20100512203640) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "native_speaker"
+  end
+
+  create_table "service_learnings", :force => true do |t|
+    t.string   "class_name"
+    t.string   "instructor"
+    t.integer  "hours"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timeslots", :force => true do |t|
   end
 
 end

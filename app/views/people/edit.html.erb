@@ -44,7 +44,7 @@
       <span>
         <h3><%= day_name %></h3>
         <% (9..20).each do |hour| %>
-          <%= f.check_box :matches %>
+          <%= check_box_tag "availabilities[" + (day_num*24 + hour).to_s + "]", true, @person.availabilities.find_by_timeslot_id(day_num*24 + hour)%>
         <% end %>
       </span>
     <% end %>

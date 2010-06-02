@@ -1,6 +1,6 @@
-class Availability < ActiveRecord::Base
+class Timeslot < ActiveRecord::Base
   DAYS_OF_WEEK = %w"Sunday Monday Tuesday Wednesday Thursday Friday Saturday Doomsday"
-  has_and_belongs_to_many :people
+  has_many :availabilities
   
   # The id of instances of this class represent an hour of the week, from 1-168.
   #

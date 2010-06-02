@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :availabilities
+
   map.resources :people
-  map.resources :students
-  map.resources :volunteers
+  map.resources :students, :controller => :people
+  map.resources :volunteers, :controller => :people
 
   # The priority is based upon order of creation: first created -> highest priority.
 
