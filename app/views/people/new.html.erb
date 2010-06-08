@@ -16,8 +16,8 @@
     <%= f.check_box :male %>
   </p>
   <p>
-    <%= f.label :contact %><br />
-    <%= f.text_field :contact %>
+    <%= f.label :contacts %><br />
+    <%= f.text_field :contacts %>
   </p>
   <p>
     <%= f.label :address %><br />
@@ -26,10 +26,6 @@
   <p>
     <%= f.label :contact_permission %><br />
     <%= f.check_box :contact_permission %>
-  </p>
-  <p>
-    <%= f.label :availabilities %><br />
-    <%= f.text_field :availabilities %>
   </p>
   <p>
     <%= f.label :weekly_hours %><br />
@@ -44,7 +40,17 @@
     <%= f.text_field :type %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <% %w"Monday Tuesday Wednesday Thursday Friday".each_with_index do |day_name, day_num| %>
+      <span>
+        <h3><%= day_name %></h3>
+        <% (9..20).each do |hour| %>
+          <%= check_box_tag "availabilities[" + (day_num*24 + hour).to_s + "]", true, @person.availabilities.find_by_timeslot_id(day_num*24 + hour)%>
+        <% end %>
+      </span>
+    <% end %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
   </p>
 <% end %>
 

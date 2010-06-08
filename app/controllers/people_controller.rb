@@ -63,11 +63,11 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.update_attributes(params[:person])
         updated = params[:availabilities].keys.map(&:to_i)
-        existing = @person.availabilities.map(&:timeslot_id)
-        new = updated - existing
-        deleted = existing - updated
-        @person.availabilities.delete(deleted.map{|d| @person.availabilities.find_by_timeslot_id(d)})
-        @person.availabilities=(new.map{|n| Availability.new(:timeslot_id=>n)})
+        #existing = @person.availabilities.map(&:timeslot_id)
+        #new = updated - existing
+        #deleted = existing - updated
+        #@person.availabilities.delete(deleted.map{|d| @person.availabilities.find_by_timeslot_id(d)})
+        @person.availabilities=(updated.map{|t| @person.availabilities.find_or_create_by_timeslot_id(t)})
         flash[:notice] = 'Person was successfully updated.'
         format.html { redirect_to(@person) }
         format.xml  { head :ok }
