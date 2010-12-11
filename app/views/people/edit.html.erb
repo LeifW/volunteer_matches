@@ -41,10 +41,12 @@
   </p>
   <p>
     <% %w"Monday Tuesday Wednesday Thursday Friday".each_with_index do |day_name, day_num| %>
+      <% list = [] %>
+      <% @person.availabilities.map(&:timeslot_id).each{|t| list[t] = true} %>
       <span>
         <h3><%= day_name %></h3>
         <% (9..20).each do |hour| %>
-          <%= check_box_tag "availabilities[" + (day_num*24 + hour).to_s + "]", true, @person.availabilities.find_by_timeslot_id(day_num*24 + hour)%>
+          <%= check_box_tag "availabilities[" + (day_num*24 + hour).to_s + "]", true, list[day_num*24 + hour]%>
         <% end %>
       </span>
     <% end %>

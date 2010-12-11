@@ -1,0 +1,39 @@
+%p
+  %b ID-number:
+  = h @person.id
+%p
+  %b Name:
+  = h @person.name
+%p
+  %b Gender:
+  = h @person.male ? "male" : "female"
+%p
+  %b Contact:
+  = h @person.contacts
+%p
+  %b Address:
+  = h @person.address
+%p
+  %b Contact permission:
+  = h @person.contact_permission ? "yes" : "no"
+%p
+  %b Availabilities:
+  - list = []
+  - @person.availabilities.map(&:timeslot_id).each{|t| list[t] = true}
+  - %w"Monday Tuesday Wednesday Thursday Friday".each_with_index do |day_name, day_num|
+    %span
+      %h3= day_name
+      - (9..20).each do |hour|
+        =  hour.to_s + list[day_num*24 + hour].to_s
+%p
+  %b Weekly hours:
+  = h @person.weekly_hours
+%p
+  %b Comments:
+  = h @person.comments
+%p
+  %b Type:
+  = h @person.type
+= link_to 'Edit', edit_person_path(@person)
+|
+\#{link_to 'Back', people_path}
